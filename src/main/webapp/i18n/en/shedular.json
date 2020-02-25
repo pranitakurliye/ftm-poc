@@ -1,0 +1,27 @@
+{
+  "ftmpocApp": {
+    "shedular": {
+      "home": {
+        "title": "Shedulars",
+        "createLabel": "Create a new Shedular",
+        "createOrEditLabel": "Create or edit a Shedular",
+        "notFound": "No Shedulars found"
+      },
+      "created": "A new Shedular is created with identifier {{ param }}",
+      "updated": "A Shedular is updated with identifier {{ param }}",
+      "deleted": "A Shedular is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shedular {{ id }}?"
+      },
+      "detail": {
+        "title": "Shedular"
+      },
+      "taskName": "Task Name",
+      "taskShecduledAt": "Task Shecduled At",
+      "status": "Status",
+      "help": {
+        "taskName": "The firstname attribute."
+      }
+    }
+  }
+}

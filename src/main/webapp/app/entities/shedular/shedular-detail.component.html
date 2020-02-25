@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="shedular">
+            <h2><span jhiTranslate="ftmpocApp.shedular.detail.title">Shedular</span> {{ shedular.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ftmpocApp.shedular.taskName" [ngbTooltip]="'ftmpocApp.shedular.help.taskName' | translate">Task Name</span></dt>
+                <dd>
+                    <span>{{ shedular.taskName }}</span>
+                </dd>
+                <dt><span jhiTranslate="ftmpocApp.shedular.taskShecduledAt">Task Shecduled At</span></dt>
+                <dd>
+                    <span>{{ shedular.taskShecduledAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ftmpocApp.shedular.status">Status</span></dt>
+                <dd>
+                    <span>{{ shedular.status }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/shedular', shedular.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
