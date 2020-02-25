@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ftmpocApp.shedular.home.title">Shedulars</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-shedular" [routerLink]="['/shedular/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ftmpocApp.shedular.home.createLabel">
+            Create a new Shedular
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="shedulars?.length === 0">
+        <span jhiTranslate="ftmpocApp.shedular.home.notFound">No shedulars found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="shedulars?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ftmpocApp.shedular.taskName">Task Name</span></th>
+                    <th scope="col" ><span jhiTranslate="ftmpocApp.shedular.taskShecduledAt">Task Shecduled At</span></th>
+                    <th scope="col" ><span jhiTranslate="ftmpocApp.shedular.status">Status</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let shedular of shedulars ;trackBy: trackId">
+                    <td><a [routerLink]="['/shedular', shedular.id, 'view']">{{ shedular.id }}</a></td>
+                    <td>{{ shedular.taskName }}</td>
+                    <td>{{ shedular.taskShecduledAt | date:'medium' }}</td>
+                    <td>{{ shedular.status }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/shedular', shedular.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/shedular', shedular.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(shedular)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
