@@ -1,0 +1,11 @@
+/**
+ * The Shedular entity.
+ */
+entity Shedular {
+	/**
+	* The firstname attribute.
+	*/
+	taskName String,
+	taskShecduledAt ZonedDateTime,
+	status String
+}
